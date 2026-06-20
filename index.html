@@ -639,6 +639,54 @@ section { padding: clamp(64px, 8vw, 96px) 0; border-top: 1px solid var(--line); 
 @media (max-width: 520px) { .services-grid { grid-template-columns: 1fr; } }
 
 /* =========================================================
+   PROFILE
+   ========================================================= */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(36px, 6vw, 56px);
+  align-items: center;
+}
+.profile-photo {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.profile-copy h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  margin-bottom: 18px;
+}
+.profile-copy p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 16px;
+  max-width: 54ch;
+}
+.profile-copy .profile-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  border-bottom: 1.5px solid var(--blue);
+  padding-bottom: 2px;
+}
+
+@media (max-width: 860px) { .profile-grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
    ABOUT
    ========================================================= */
 .about-grid {
@@ -1087,7 +1135,7 @@ a:focus-visible, button:focus-visible {
      =================================================== -->
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo" aria-label="Anas Ahmad home">ANAS<span></span>AHMAD</a>
+    <a href="#" class="logo" aria-label="Anas Ahmad home">Anas<span></span> <br>Ahmad</a>
 
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#about">About</a>
@@ -1158,25 +1206,25 @@ a:focus-visible, button:focus-visible {
         </div>
         <div class="ledger__row">
           <span class="acct">Test-Prep Institute<span class="tag">Education</span></span>
-          <span class="num">₹3,50,000</span>
+          <span class="num">₹35,000</span>
           <span class="num up count" data-target="4.8" data-decimals="1" data-suffix="x">0x</span>
           <span class="num up count" data-target="120" data-prefix="₹">₹0</span>
         </div>
         <div class="ledger__row">
           <span class="acct">University Program<span class="tag">Education</span></span>
-          <span class="num">₹6,00,000</span>
+          <span class="num">₹60.000</span>
           <span class="num up count" data-target="3.6" data-decimals="1" data-suffix="x">0x</span>
           <span class="num up count" data-target="180" data-prefix="₹">₹0</span>
         </div>
         <div class="ledger__row">
           <span class="acct">Gym Chain · 12 locations<span class="tag">Fitness</span></span>
-          <span class="num">₹5,50,000</span>
+          <span class="num">₹50,000</span>
           <span class="num up count" data-target="5.6" data-decimals="1" data-suffix="x">0x</span>
           <span class="num up count" data-target="75" data-prefix="₹">₹0</span>
         </div>
         <div class="ledger__row">
           <span class="acct">Wellness Studio<span class="tag">Fitness</span></span>
-          <span class="num">₹1,75,000</span>
+          <span class="num">₹75,000</span>
           <span class="num up count" data-target="4.1" data-decimals="1" data-suffix="x">0x</span>
           <span class="num up count" data-target="90" data-prefix="₹">₹0</span>
         </div>
@@ -1191,20 +1239,45 @@ a:focus-visible, button:focus-visible {
 <section class="stats-band">
   <div class="wrap">
     <div class="stat-cell accent-g reveal">
-      <div class="stat-num"><span class="count" data-target="40" data-suffix="+">0</span></div>
+      <div class="stat-num"><span class="count" data-target="60" data-suffix="+">0</span></div>
       <div class="stat-label">Campaigns managed across sectors</div>
     </div>
     <div class="stat-cell accent-b reveal reveal-delay-1">
-      <div class="stat-num"><span class="count" data-target="3" data-prefix="₹" data-suffix="Cr+">₹0</span></div>
+      <div class="stat-num"><span class="count" data-target="3" data-prefix="₹" data-suffix="Lakhs+">₹0</span></div>
       <div class="stat-label">Ad spend managed</div>
     </div>
     <div class="stat-cell accent-o reveal reveal-delay-2">
-      <div class="stat-num"><span class="count" data-target="62" data-suffix="%">0</span></div>
+      <div class="stat-num"><span class="count" data-target="27" data-suffix="%">0</span></div>
       <div class="stat-label">Avg. reduction in cost-per-lead</div>
     </div>
     <div class="stat-cell accent-w reveal reveal-delay-3">
-      <div class="stat-num"><span class="count" data-target="4.8" data-decimals="1" data-suffix="x">0</span></div>
+      <div class="stat-num"><span class="count" data-target="2.3" data-decimals="1" data-suffix="x">0</span></div>
       <div class="stat-label">Average ROAS across all active accounts</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     PROFILE
+     =================================================== -->
+<section id="profile">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Meet the strategist</div>
+      <h2>My photo and a quick intro</h2>
+      <p>A simple spot to show who I am and why I focus on ads that bring people through the door, not just clicks.</p>
+    </div>
+
+    <div class="profile-grid reveal reveal-delay-1">
+      <div class="profile-photo">
+        <img src="your-photo.jpg" alt="Photo of Anas Ahmad" />
+      </div>
+      <div class="profile-copy">
+        <h2>Hi, I’m Anas.</h2>
+        <p>This is where your portrait belongs — the photo that helps clients put a face to the name and trust the person behind the work.</p>
+        <p>Replace the image path with your own photo file, or upload a picture named <strong>your-photo.jpg</strong> to this folder.</p>
+        <a class="profile-cta" href="#contact">Share your goals →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1226,7 +1299,7 @@ a:focus-visible, button:focus-visible {
         <h3>Coaching, schools, colleges &amp; ed-tech</h3>
         <ul>
           <li><strong>Coaching &amp; test-prep institutes</strong> — demo class bookings and batch enrollment campaigns timed to admission cycles</li>
-          <li><strong>K-12 schools</strong> — admission inquiry funnels, virtual tour bookings, and seasonal enrollment pushes</li>
+          <li><strong>Private schools</strong> — admission inquiry funnels, virtual tour bookings, and seasonal enrollment pushes</li>
           <li><strong>Colleges &amp; universities</strong> — program-specific lead generation with cost-per-application tracking</li>
           <li><strong>Tuition &amp; tutoring centres</strong> — neighbourhood-level lead ads built around new batch start dates</li>
           <li><strong>Skill development &amp; ed-tech platforms</strong> — webinar and free-trial sign-ups that convert into paid cohorts</li>
