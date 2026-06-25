@@ -1570,6 +1570,14 @@ a:focus-visible, button:focus-visible {
       <div class="contact-col reveal reveal-delay-1">
         <form class="contact-form" id="contactForm" novalidate>
           <div class="form-group">
+            <label class="form-label" for="yourName">Your name</label>
+            <input type="text" id="yourName" name="name" placeholder="So I know who to reply to" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="yourEmail">Your email</label>
+            <input type="email" id="yourEmail" name="email" placeholder="Where I'll send my reply" required>
+          </div>
+          <div class="form-group">
             <label class="form-label" for="service">What are you looking to grow?</label>
             <select id="service" name="service" required>
               <option value="">Select a goal…</option>
@@ -1585,7 +1593,7 @@ a:focus-visible, button:focus-visible {
             <label class="form-label" for="message">A few details</label>
             <textarea id="message" name="message" rows="4" placeholder="Current ad spend, what's not working, and what you'd like to fix…"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send via email →</button>
+          <button type="submit" class="btn btn-primary">Send message →</button>
         </form>
 
         <div class="contact-card">
@@ -1693,16 +1701,68 @@ const countObs = new IntersectionObserver((entries) => {
 counters.forEach(el => countObs.observe(el));
 
 /* =====================================================
-   CONTACT FORM → MAILTO
+   CONTACT FORM → EMAIL (via FormSubmit, no backend needed)
+   =====================================================
+   This sends the form data to FormSubmit (https://formsubmit.co),
+   which forwards it straight to workanasahmad@gmail.com.
+
+   ONE-TIME SETUP: the first time this form is submitted (e.g. when
+   you test it), FormSubmit emails workanasahmad@gmail.com asking you
+   to click "Activate Form". Click it once — every submission after
+   that lands in the inbox automatically. No password or API key
+   needed; FormSubmit is free.
+
+   Note: reCAPTCHA is left ON below (no _captcha:'false' field) since
+   this endpoint is reachable directly, not only from this page — the
+   captcha is what stops bots from spamming the inbox. If you'd rather
+   trade that protection for a slightly smoother submit experience,
+   add `_captcha: 'false'` to the formData object below.
    ===================================================== */
+const FORM_EMAIL = 'workanasahmad@gmail.com'; // <-- change this to redirect submissions elsewhere
 const form = document.getElementById('contactForm');
+
 form && form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+
+  const name    = document.getElementById('yourName').value;
+  const email   = document.getElementById('yourEmail').value;
   const service = document.getElementById('service').value;
   const message = document.getElementById('message').value;
-  const subject = encodeURIComponent('Meta Ads enquiry: ' + service);
-  const body    = encodeURIComponent('Hi Anas,\n\nI\'m interested in: ' + service + '\n\n' + (message || '(no additional details)') + '\n');
-  window.location.href = 'mailto:workanasahmad@gmail.com?subject=' + subject + '&body=' + body;
+
+  const formData = {
+    name: name,
+    email: email,
+    looking_to_grow: service,
+    message: message || '(no additional details)',
+    _subject: 'Meta Ads enquiry: ' + service
+  };
+
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(() => {
+    alert('Thanks ' + name + '! Your message is on its way — Anas will reply by email soon.');
+    form.reset();
+  })
+  .catch(() => {
+    alert("Sorry, that didn't go through. Please email workanasahmad@gmail.com directly instead.");
+  })
+  .finally(() => {
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+  });
 });
 
 /* =====================================================
