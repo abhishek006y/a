@@ -43,13 +43,13 @@ header{position:sticky;top:0;z-index:100;background:rgba(242,240,233,.92);backdr
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;border-radius:8px;transition:background .15s;flex-shrink:0}
 .hamburger:hover{background:var(--card)}.hamburger span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s;transform-origin:center}
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;inset:var(--nav-h) 0 0;background:var(--paper);z-index:99;padding:28px 24px;flex-direction:column;gap:6px;border-top:1px solid var(--line);overflow-y:auto}
+/.mobile-menu{display:none;position:fixed;inset:var(--nav-h) 0 0;background:var(--paper);z-index:99;padding:28px 24px;flex-direction:column;gap:6px;border-top:1px solid var(--line);overflow-y:auto}
 .mobile-menu.open{display:flex}.mobile-menu a{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:600;padding:14px 0;border-bottom:1px solid var(--line);color:var(--ink-soft);transition:color .15s,padding-left .15s}
 .mobile-menu a:hover{color:var(--ink);padding-left:8px}.mobile-menu .mob-cta{margin-top:16px;background:var(--ink);color:var(--paper);border-radius:12px;text-align:center;padding:18px;font-size:.9rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.07em;border:none}
 .mobile-menu .mob-cta:hover{background:var(--blue)}
 @media(max-width:860px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:520px){.nav-cta{display:none}}@media(max-width:420px){.logo{font-size:1.5rem}}
 
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.98rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
 .eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 .section-head{margin-bottom:52px}.section-head h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.85rem,3.5vw,2.7rem);letter-spacing:-.02em;line-height:1.15;max-width:20ch}
@@ -59,7 +59,7 @@ section{padding:clamp(64px,8vw,96px) 0;border-top:1px solid var(--line)}
 .hero{padding:28px 0 55px;border-top:none;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:680px;height:680px;background:radial-gradient(circle at 25% 25%,rgba(47,93,255,.18),transparent 55%),radial-gradient(circle at 75% 75%,rgba(255,90,54,.14),transparent 55%);filter:blur(8px);pointer-events:none;z-index:0}
 .hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,6vw,72px);align-items:center;position:relative;z-index:1}
-.hero-text .eyebrow{margin-top:-10px}.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.3rem,5vw,4rem);line-height:1.07;letter-spacing:-.025em;margin-bottom:22px}
+.hero-text .eyebrow{margin-top:-10px;margin-bottom:4px}.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.3rem,5vw,4rem);line-height:1.07;letter-spacing:-.025em;margin-bottom:22px}
 .hero h1 em{font-style:normal;color:var(--blue);position:relative}.hero-lead{font-size:clamp(1rem,1.6vw,1.12rem);color:var(--ink-soft);max-width:44ch;margin-bottom:32px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}.chip-row{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line-strong);background:var(--card);padding:6px 12px;border-radius:999px;transition:border-color .15s,color .15s,transform .15s,box-shadow .15s}
@@ -135,70 +135,177 @@ footer{border-top:1px solid var(--line);padding:clamp(22px,3vw,30px) 0}.footer-i
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
 .back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);z-index:80;opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s,background .15s;pointer-events:none}.back-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}.back-top:hover{background:var(--blue)}.back-top svg{width:18px;height:18px}
 @media(max-width:480px){.back-top{bottom:20px;right:20px}}
+.about-grid{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  align-items:stretch;
+}
+
+.about-bio{
+  width:100%;
+}
+
+.approach{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  width:100%;
+}
+
+.approach-card{
+  width:100%;
+}
 </style>
 </head>
 
 <body>
+
+<!-- ===================================================
+     NAV
+     =================================================== -->
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">Anas<span>Ahmad</span></a>
+    <a href="#" class="logo" aria-label="Anas Ahmad home">Anas<br>Ahmad</a>
+
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#sectors">Sectors</a><a href="#services">Services</a>
-      <a href="#process">Process</a><a href="#results">Results</a><a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a class="nav-cta" href="https://calendly.com/workanasahmad/discovery-call" target="_blank" rel="noopener">Book a call</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+
+    <a class="nav-cta" href="https://calendly.com/workanasahmad/discovery-call">Book a call</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about">About</a><a href="#sectors">Sectors</a><a href="#services">Services</a><a href="#process">Process</a><a href="#results">Results</a><a href="#contact">Contact</a>
-  <a class="mob-cta" href="https://calendly.com/workanasahmad/discovery-call" target="_blank" rel="noopener">Book a call</a>
+<!-- Mobile drawer -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#sectors" class="mob-link">Sectors</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#process" class="mob-link">Process</a>
+  <a href="#results" class="mob-link">Results</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="https://calendly.com/workanasahmad/discovery-call" class="mob-cta">Book a strategy call </a>
 </div>
 
-<main id="top">
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-text reveal">
-      <div class="eyebrow">Performance marketing · India</div>
-      <h1>Meta &amp; Google Ads <em>built for real growth.</em></h1>
-      <p class="hero-lead">I help education, fitness, health and local businesses turn paid traffic into qualified leads, bookings, enrollments and memberships.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://calendly.com/workanasahmad/discovery-call" target="_blank" rel="noopener">Book a discovery call →</a>
-        <a class="btn btn-ghost" href="#results">See results</a>
+<!-- ===================================================
+     HERO
+     =================================================== -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <!-- Left -->
+      <div class="hero-text">
+        <div class="eyebrow">Meta & Google Ads Strategist </div>
+        <h1>Stop paying for likes.<br>Start paying for <em>seats, members &amp; walk-ins</em>.</h1>
+        <p class="hero-lead">Hi, I'm Anas<br> I plan, build, and run Meta Ads campaigns for coaching centres, schools, colleges, gyms, clinics, and academies — every rupee tracked back to an admission, a membership, or a booked appointment.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://calendly.com/workanasahmad/discovery-call">Book a strategy call</a>
+          <a class="btn btn-ghost" href="#results">See results →</a>
+        </div>
+        <div class="chip-row">
+          <span class="chip">Coaching institutes</span>
+          <span class="chip">Schools</span>
+          <span class="chip">Colleges &amp; universities</span>
+          <span class="chip">Gyms &amp; fitness studios</span>
+          <span class="chip">Diagnostic clinics</span>
+          <span class="chip">Sports &amp; dance academies</span>
+          <span class="chip">Salons &amp; spas</span>
+          <span class="chip">Ed-tech platforms</span>
+        </div>
       </div>
-      <div class="chip-row">
-        <span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">Lead Generation</span><span class="chip">Conversion Tracking</span>
-      </div>
-    </div>
 
-    <div class="ledger reveal reveal-delay-2">
-      <div class="ledger__bar"><span><span class="dot"></span> Campaign ledger</span><span>Last 30 days</span></div>
-      <div class="ledger__head"><span>Account</span><span>Spend</span><span>ROAS</span><span>CPL</span></div>
-      <div class="ledger__row"><span class="acct">Test-Prep Institute<span class="tag">Education</span></span><span class="num">₹1,35,000</span><span class="num up count" data-target="4.2" data-decimals="1" data-suffix="x">0x</span><span class="num up count" data-target="35" data-prefix="₹">₹0</span></div>
-      <div class="ledger__row"><span class="acct">Coaching Institutes<span class="tag">Education</span></span><span class="num">₹75,000</span><span class="num up count" data-target="2.1" data-decimals="1" data-suffix="x">0x</span><span class="num up count" data-target="23" data-prefix="₹">₹0</span></div>
-      <div class="ledger__row"><span class="acct">Gym Chain <br>(4 locations)<span class="tag">Fitness</span></span><span class="num">₹32,000</span><span class="num up count" data-target="1.8" data-decimals="1" data-suffix="x">0x</span><span class="num up count" data-target="75" data-prefix="₹">₹0</span></div>
-      <div class="ledger__row"><span class="acct">Wellness Studio<span class="tag">Fitness</span></span><span class="num">₹30,000</span><span class="num up count" data-target="1.5" data-decimals="1" data-suffix="x">0x</span><span class="num up count" data-target="90" data-prefix="₹">₹0</span></div>
+      <!-- Right: Live Ledger -->
+      <div class="ledger reveal reveal-delay-2">
+        <div class="ledger__bar">
+          <span><span class="dot"></span> Campaign ledger</span>
+          <span>Last 30 days</span>
+        </div>
+        <div class="ledger__head">
+          <span>Account</span>
+          <span>Spend
+          </span>
+          <span>ROAS</span>
+          <span>CPL</span>
+        </div>
+        <div class="ledger__row">
+          <span class="acct">Test-Prep Institute<span class="tag">Education</span></span>
+          <span class="num">₹1,35,000</span>
+          <span class="num up count" data-target="4.2x" data-decimals="1" data-suffix="x">0x</span>
+          <span class="num up count" data-target="35" data-prefix="₹">₹0</span>
+        </div>
+        <div class="ledger__row">
+          <span class="acct">Coaching Institutes<span class="tag">Education</span></span>
+          <span class="num">₹75,000</span>
+          <span class="num up count" data-target="2.1x" data-decimals="1" data-suffix="x">0x</span>
+          <span class="num up count" data-target="23" data-prefix="₹">₹0</span>
+        </div>
+        <div class="ledger__row">
+          <span class="acct">Gym Chain <br>(4 locations)<span class="tag">Fitness</span></span>
+          <span class="num">₹32,000</span>
+          <span class="num up count" data-target="1.8x" data-decimals="1" data-suffix="x">0x</span>
+          <span class="num up count" data-target="75" data-prefix="₹">₹0</span>
+        </div>
+        <div class="ledger__row">
+          <span class="acct">Wellness Studio<span class="tag">Fitness</span></span>
+          <span class="num">₹30,000</span>
+          <span class="num up count" data-target="1.5x" data-decimals="1" data-suffix="x">0x</span>
+          <span class="num up count" data-target="90" data-prefix="₹">₹0</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="stats-band">
+<!-- ===================================================
+     STATS BAND
+     =================================================== -->
+<section class="stats-band">
   <div class="wrap">
-    <div class="stat-cell accent-b"><span class="stat-num">60+</span><span class="stat-label">Campaigns managed</span></div>
-    <div class="stat-cell accent-g"><span class="stat-num">₹8L+</span><span class="stat-label">Ad spend managed</span></div>
-    <div class="stat-cell accent-o"><span class="stat-num">27%</span><span class="stat-label">Average CPL reduction</span></div>
-    <div class="stat-cell accent-w"><span class="stat-num">2.3x</span><span class="stat-label">Average ROAS</span></div>
+    <div class="stat-cell accent-g reveal">
+      <div class="stat-num"><span class="count" data-target="60" data-suffix="+">0</span></div>
+      <div class="stat-label">Campaigns managed across sectors</div>
+    </div>
+    <div class="stat-cell accent-b reveal reveal-delay-1">
+      <div class="stat-num"><span class="count" data-target="8" data-prefix="Rs." data-suffix="Lakhs+">₹0</span></div>
+      <div class="stat-label">Ad spend managed</div>
+    </div>
+    <div class="stat-cell accent-o reveal reveal-delay-2">
+      <div class="stat-num"><span class="count" data-target="27" data-suffix="%">0</span></div>
+      <div class="stat-label">Avg. reduction in cost-per-lead</div>
+    </div>
+    <div class="stat-cell accent-w reveal reveal-delay-3">
+      <div class="stat-num"><span class="count" data-target="2.3" data-decimals="1" data-suffix="x">0</span></div>
+      <div class="stat-label">Average ROAS across all active accounts</div>
+    </div>
   </div>
-</div>
+</section>
 
-<section id="about">
+<!-- ===================================================
+     PROFILE
+     =================================================== -->
+<section id="profile">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">About</div><h2>Performance marketing without the fluff.</h2><p>Clear strategy, measurable outcomes and reporting that connects ad spend to business results.</p></div>
+    <div class="section-head reveal">
+      <div class="eyebrow">Meet the strategist</div>
+      <h2>A Quick Intro</h2>
+      <p>A simple spot to show who I am and why I focus on ads that bring people through the door, not just clicks.</p>
+    </div>
+
     <div class="profile-grid reveal reveal-delay-1">
-      <div class="profile-photo"><img src="portfolio pic.png" alt="Photo of Anas Ahmad"></div>
+      <div class="profile-photo">
+        <img src="portfolio pic.png" alt="Photo of Anas Ahmad" />
+      </div>
       <div class="profile-copy">
-        <h2>Hi, I'm Anas</h2>
+        <h2>Hi, I'm Anas </h2>
         <p>I'm a freelance Meta Ads specialist based in India, focused on one corner of the market: businesses where the goal isn't a click, it's a person walking through the door or signing up for a batch.</p>
         <p>Over the years I've managed campaigns for coaching institutes, schools, colleges, gyms, and health centres — accounts where "engagement" doesn't pay the bills, but enrollments and memberships do. I bring that same lens to every new account: what's the real action worth paying for, and how do we get more of it for less.</p>
         <p>No jargon-heavy reports, no vanity metrics — just clear weekly numbers and a plan for what changes next.</p>
@@ -208,12 +315,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
   </div>
 </section>
 
+<!-- ===================================================
+     SECTORS
+     =================================================== -->
 <section id="sectors">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Sectors</div><h2>Built around businesses that need action, not attention.</h2></div>
+    <div class="section-head reveal">
+      <div class="eyebrow">Who I work with</div>
+      <h2>If people have to show up, I can fill the room</h2>
+      <p>Coaching centres, schools, gyms, clinics, academies — different sales pitches, same job: turn scrolling into a phone call, a walk-in, or a signed-up student or member.</p>
+    </div>
+
     <div class="sectors-grid">
       <div class="sector-card reveal">
-        <div class="sector-tag">Education &amp; Skill Development</div><h3>Coaching, schools, colleges &amp; ed-tech</h3>
+        <div class="sector-tag">Education &amp; Skill Development</div>
+        <h3>Coaching, schools, colleges &amp; ed-tech</h3>
         <ul>
           <li><strong>Coaching &amp; test-prep institutes</strong> — demo class bookings and batch enrollment campaigns timed to admission cycles</li>
           <li><strong>Private schools</strong> — admission inquiry funnels, virtual tour bookings, and seasonal enrollment pushes</li>
@@ -223,7 +339,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
         </ul>
       </div>
       <div class="sector-card fitness reveal reveal-delay-1">
-        <div class="sector-tag">Fitness, Health &amp; Lifestyle</div><h3>Gyms, clinics, studios &amp; academies</h3>
+        <div class="sector-tag">Fitness, Health &amp; Lifestyle</div>
+        <h3>Gyms, clinics, studios &amp; academies</h3>
         <ul>
           <li><strong>Gyms &amp; fitness studios</strong> — trial pass and membership offer campaigns with tight local-radius targeting</li>
           <li><strong>Yoga &amp; wellness centres</strong> — class-pack and workshop sign-ups for first-time visitors</li>
@@ -236,135 +353,480 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
   </div>
 </section>
 
+<!-- ===================================================
+     SERVICES
+     =================================================== -->
 <section id="services">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Services</div><h2>Everything from tracking to scale.</h2><p>A focused paid-media system designed around your actual conversion goal.</p></div>
+    <div class="section-head reveal">
+      <div class="eyebrow">What I do</div>
+      <h2>End-to-end Meta Ads management</h2>
+      <p>From the first audit to the monthly report — every piece of the account set up to measure against real business outcomes.</p>
+    </div>
+
     <div class="services-grid">
-      <div class="service reveal"><div class="service-icon">⌁</div><span class="tag">Setup</span><h3>Account audit &amp; setup</h3><p>Account structure, pixel and Conversions API setup, and event tracking checks before a single rupee is spent.</p></div>
-      <div class="service reveal reveal-delay-1"><div class="service-icon">◉</div><span class="tag">Research</span><h3>Audience research</h3><p>Mapping who actually enrolls or signs up — parents, students, local residents — and building audiences around them.</p></div>
-      <div class="service reveal reveal-delay-2"><div class="service-icon">✦</div><span class="tag">Creative</span><h3>Creative testing</h3><p>Static, carousel, and short-form video tested against each other so spend keeps shifting toward what works.</p></div>
-      <div class="service reveal"><div class="service-icon">↗</div><span class="tag">Funnels</span><h3>Lead funnels</h3><p>Lead forms, landing pages, and WhatsApp or call integrations built for fast follow-up by your team.</p></div>
-      <div class="service reveal reveal-delay-1"><div class="service-icon">◎</div><span class="tag">Retargeting</span><h3>Retargeting &amp; nurture</h3><p>Sequences for people who showed interest but haven't booked a demo, trial, or visit yet.</p></div>
-      <div class="service reveal reveal-delay-2"><div class="service-icon">▤</div><span class="tag">Reporting</span><h3>Outcome reporting</h3><p>Reports tied to enrollments and memberships — not clicks and impressions — in plain language.</p></div>
+      <div class="service reveal">
+        <div class="service-icon"></div>
+        <span class="tag">Setup</span>
+        <h3>Account audit &amp; setup</h3>
+        <p>Account structure, pixel and Conversions API setup, and event tracking checks before a single rupee is spent.</p>
+      </div>
+      <div class="service reveal reveal-delay-1">
+        <div class="service-icon"></div>
+        <span class="tag">Research</span>
+        <h3>Audience research</h3>
+        <p>Mapping who actually enrolls or signs up — parents, students, local residents — and building audiences around them.</p>
+      </div>
+      <div class="service reveal reveal-delay-2">
+        <div class="service-icon"></div>
+        <span class="tag">Creative</span>
+        <h3>Creative testing</h3>
+        <p>Static, carousel, and short-form video tested against each other so spend keeps shifting toward what works.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-icon"></div>
+        <span class="tag">Funnels</span>
+        <h3>Lead funnels</h3>
+        <p>Lead forms, landing pages, and WhatsApp or call integrations built for fast follow-up by your team.</p>
+      </div>
+      <div class="service reveal reveal-delay-1">
+        <div class="service-icon"></div>
+        <span class="tag">Retargeting</span>
+        <h3>Retargeting &amp; nurture</h3>
+        <p>Sequences for people who showed interest but haven't booked a demo, trial, or visit yet.</p>
+      </div>
+      <div class="service reveal reveal-delay-2">
+        <div class="service-icon"></div>
+        <span class="tag">Reporting</span>
+        <h3>Outcome reporting</h3>
+        <p>Reports tied to enrollments and memberships — not clicks and impressions — in plain language.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ===================================================
+     ABOUT
+     =================================================== -->
+<section id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-bio reveal">
-        <div class="avatar">AA</div><div class="eyebrow">How I work</div>
-        <h2>Simple systems. Serious numbers.</h2>
-        <p>Good performance marketing is less about chasing every new feature and more about knowing what to measure, what to test and what to stop.</p>
-        <a class="about-link" href="#contact">Let's talk →</a>
+      <div class="reveal">
+        <div class="about-bio">
+          <!--
+          <h2>Hi, I'm Anas n</h2>
+          <p>I'm a freelance Meta Ads specialist based in India, focused on one corner of the market: businesses where the goal isn't a click, it's a person walking through the door or signing up for a batch.</p>
+          <p>Over the years I've managed campaigns for coaching institutes, schools, colleges, gyms, and health centres — accounts where "engagement" doesn't pay the bills, but enrollments and memberships do. I bring that same lens to every new account: what's the real action worth paying for, and how do we get more of it for less.</p>
+          <p>No jargon-heavy reports, no vanity metrics — just clear weekly numbers and a plan for what changes next.</p>
+          -->
+          <a class="about-link" href="#contact">Let's talk about your account →</a>
+        </div>
       </div>
+
       <div class="approach reveal reveal-delay-1">
-        <div class="approach-card"><h3>Numbers over noise</h3><p>Every campaign is judged on cost-per-result — leads, demos, sign-ups, bookings — not likes, reach, or impressions.</p></div>
-        <div class="approach-card"><h3>Fast to launch, faster to fix</h3><p>New accounts go live within days, and underperforming ads get caught and changed within the week, not the month.</p></div>
-        <div class="approach-card"><h3>You're always in the loop</h3><p>Weekly check-ins and a simple ledger-style report — you'll always know what's working and what's next.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Process</div><h2>A five-step path from audit to scale.</h2></div>
-    <div class="process-list">
-      <div class="process-row reveal"><div class="step-bubble">01</div><div class="process-row-content"><h3>Audit</h3><p>Review account structure, pixel health, and the last 90 days of data to see what's actually been happening.</p></div></div>
-      <div class="process-row reveal reveal-delay-1"><div class="step-bubble">02</div><div class="process-row-content"><h3>Plan</h3><p>Map the funnel — awareness, lead, demo or trial, enrollment or membership — and set targets for each stage.</p></div></div>
-      <div class="process-row reveal reveal-delay-2"><div class="step-bubble">03</div><div class="process-row-content"><h3>Launch</h3><p>Build campaigns, ad sets, and creative variants, structured for clean testing from day one.</p></div></div>
-      <div class="process-row reveal"><div class="step-bubble">04</div><div class="process-row-content"><h3>Optimize</h3><p>Weekly budget shifts based on cost-per-result — the metric your business runs on, not vanity metrics.</p></div></div>
-      <div class="process-row reveal reveal-delay-1"><div class="step-bubble">05</div><div class="process-row-content"><h3>Report</h3><p>A monthly ledger review: what worked, what didn't, and what gets scaled next month.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="results">
-  <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Results</div><h2>Campaign outcomes that tell the story.</h2><p>Before-and-after numbers tied to the business metric that mattered.</p></div>
-    <div class="results-grid">
-      <div class="case reveal"><div class="case-thumb"><span class="stat">3x</span><span class="stat-label">More demo bookings, same budget</span></div><div class="case-head"><span class="niche-tag">Education · Test-prep</span><h3>Tier-2 city coaching institute</h3><p class="case-result">3x more demo bookings on the same monthly budget.</p></div><div class="case-ledger"><div class="row head"><span>Metric</span><span>Before</span><span>After</span></div><div class="row"><span>Cost / lead</span><span class="before">₹350</span><span class="after">₹120</span></div><div class="row"><span>Demo show-up rate</span><span class="before">28%</span><span class="after">61%</span></div></div></div>
-      <div class="case reveal reveal-delay-1"><div class="case-thumb"><span class="stat">90%</span><span class="stat-label">New-batch seats filled before deadline</span></div><div class="case-head"><span class="niche-tag">Education</span><h3>Independent Private School</h3><p class="case-result">Filled 90% of new-batch seats ahead of the admission deadline.</p></div><div class="case-ledger"><div class="row head"><span>Metric</span><span>Before</span><span>After</span></div><div class="row"><span>Inquiries / month</span><span class="before">35</span><span class="after">112</span></div><div class="row"><span>Cost / inquiry</span><span class="before">₹250</span><span class="after">₹140</span></div></div></div>
-      <div class="case reveal reveal-delay-2"><div class="case-thumb fit"><span class="stat">5.6x</span><span class="stat-label">ROAS across 5 locations</span></div><div class="case-head"><span class="niche-tag">Fitness · Multi-location</span><h3>5-location gym chain</h3><p class="case-result">Scaled sign-ups across all locations without a creative refresh for six weeks.</p></div><div class="case-ledger"><div class="row head"><span>Metric</span><span>Before</span><span>After</span></div><div class="row"><span>ROAS</span><span class="before">2.1x</span><span class="after">5.6x</span></div><div class="row"><span>Cost / acquisition</span><span class="before">₹4,500</span><span class="after">₹1,500</span></div></div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Client feedback</div><h2>What working together looks like.</h2></div>
-    <div class="testimonials">
-      <div class="testimonial reveal"><p class="quote">"Our demo class bookings tripled within two months, and cost per lead actually went down as we scaled the budget."</p><div class="who">Owner — Test-prep institute</div></div>
-      <div class="testimonial reveal reveal-delay-1"><p class="quote">"The first reports we've had that connect ad spend directly to admissions. Great work by Anas."</p><div class="who">Director — Private School</div></div>
-      <div class="testimonial reveal reveal-delay-2"><p class="quote">"We opened two new locations this year and the ad strategy scaled with us, location by location, without starting from zero each time."</p><div class="who">Operations head — Gym chain</div></div>
-      <div class="testimonial reveal reveal-delay-3"><p class="quote">"Our appointment bookings from Meta went from almost nothing to filling two extra slots a day within a month — and we finally know what each booking actually costs us."</p><div class="who">Founder — Diagnostic clinic</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-layout">
-      <div class="contact-headline reveal">
-        <div class="eyebrow">Contact</div><h2>Have a growth target? Let's work backwards from the number.</h2>
-        <p>Tell me what you're trying to grow, where the current funnel is stuck, and I'll help you identify the highest-impact next step.</p>
-      </div>
-      <div class="contact-col reveal reveal-delay-1">
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-group"><label class="form-label" for="yourName">Your name</label><input type="text" id="yourName" name="name" placeholder="So I know who to reply to" required></div>
-          <div class="form-group"><label class="form-label" for="yourEmail">Your email</label><input type="email" id="yourEmail" name="email" placeholder="Where I'll send my reply" required></div>
-          <div class="form-group"><label class="form-label" for="service">What are you looking to grow?</label><select id="service" name="service" required><option value="">Select a goal…</option><option>Coaching institute enrollments</option><option>School or college admissions</option><option>Gym or fitness studio memberships</option><option>Clinic or wellness centre bookings</option><option>Academy or studio trial sign-ups</option><option>Something else</option></select></div>
-          <div class="form-group"><label class="form-label" for="message">A few details</label><textarea id="message" name="message" rows="4" placeholder="Current ad spend, what's not working, and what you'd like to fix…"></textarea></div>
-          <button type="submit" class="btn btn-primary">Send message →</button>
-        </form>
-        <div class="contact-card">
-          <div class="contact-row"><span class="c-label">Email</span><a href="mailto:workanasahmad@gmail.com">workanasahmad@gmail.com</a></div>
-          <div class="contact-row"><span class="c-label">WhatsApp</span><a href="https://wa.me/918739053262" target="_blank" rel="noopener">+91 87390 53262</a></div>
-          <div class="contact-row"><span class="c-label">LinkedIn</span><a href="https://linkedin.com/in/anasahmad2006" target="_blank" rel="noopener">linkedin.com/in/anasahmad</a></div>
-          <div class="contact-row"><span class="c-label">Based in</span><span>India · works remotely</span></div>
+        <div class="approach-card">
+          <h3>Numbers over noise</h3>
+          <p>Every campaign is judged on cost-per-result — leads, demos, sign-ups, bookings — not likes, reach, or impressions.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Fast to launch, faster to fix</h3>
+          <p>New accounts go live within days, and underperforming ads get caught and changed within the week, not the month.</p>
+        </div>
+        <div class="approach-card">
+          <h3>You're always in the loop</h3>
+          <p>Weekly check-ins and a simple ledger-style report — you'll always know what's working and what's next.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-</main>
 
-<footer><div class="wrap footer-inner"><span>© <span id="year"></span> Anas Ahmad</span><span>Meta &amp; Google Ads Strategist</span></div></footer>
+<!-- ===================================================
+     PROCESS
+     =================================================== -->
+<section id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">How a new account starts</div>
+      <h2>The first 30 days</h2>
+      <p>The same five steps for every account, in the same order — so you always know what stage your campaigns are at.</p>
+    </div>
 
+    <div class="process-list">
+      <div class="process-row reveal">
+        <div class="step-bubble">01</div>
+        <div class="process-row-content">
+          <h3>Audit</h3>
+          <p>Review account structure, pixel health, and the last 90 days of data to see what's actually been happening.</p>
+        </div>
+      </div>
+      <div class="process-row reveal reveal-delay-1">
+        <div class="step-bubble">02</div>
+        <div class="process-row-content">
+          <h3>Plan</h3>
+          <p>Map the funnel — awareness, lead, demo or trial, enrollment or membership — and set targets for each stage.</p>
+        </div>
+      </div>
+      <div class="process-row reveal reveal-delay-2">
+        <div class="step-bubble">03</div>
+        <div class="process-row-content">
+          <h3>Launch</h3>
+          <p>Build campaigns, ad sets, and creative variants, structured for clean testing from day one.</p>
+        </div>
+      </div>
+      <div class="process-row reveal">
+        <div class="step-bubble">04</div>
+        <div class="process-row-content">
+          <h3>Optimize</h3>
+          <p>Weekly budget shifts based on cost-per-result — the metric your business runs on, not vanity metrics.</p>
+        </div>
+      </div>
+      <div class="process-row reveal reveal-delay-1">
+        <div class="step-bubble">05</div>
+        <div class="process-row-content">
+          <h3>Report</h3>
+          <p>A monthly ledger review: what worked, what didn't, and what gets scaled next month.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     RESULTS
+     =================================================== -->
+<section id="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Results</div>
+      <h2>Numbers, not vibes</h2>
+      <p>A look at three accounts before and after the first 90 days of working together. Names withheld for client privacy.</p>
+    </div>
+
+    <div class="results-grid">
+      <div class="case reveal">
+        <div class="case-thumb">
+          <span class="stat">3x</span>
+          <span class="stat-label">More demo bookings, same budget</span>
+        </div>
+        <div class="case-head">
+          <span class="niche-tag">Education · Test-prep</span>
+          <h3>Tier-2 city coaching institute</h3>
+          <p class="case-result">3x more demo bookings on the same monthly budget.</p>
+        </div>
+        <div class="case-ledger">
+          <div class="row head"><span>Metric</span><span>Before</span><span>After</span></div>
+          <div class="row"><span>Cost / lead</span><span class="before">₹350</span><span class="after">₹120</span></div>
+          <div class="row"><span>Demo show-up rate</span><span class="before">28%</span><span class="after">61%</span></div>
+        </div>
+      </div>
+
+      <div class="case reveal reveal-delay-1">
+        <div class="case-thumb">
+          <span class="stat">90%</span>
+          <span class="stat-label">New-batch seats filled before deadline</span>
+        </div>
+        <div class="case-head">
+          <span class="niche-tag">Education · </span>
+          <h3>Independent Private School</h3>
+          <p class="case-result">Filled 90% of new-batch seats ahead of the admission deadline.</p>
+        </div>
+        <div class="case-ledger">
+          <div class="row head"><span>Metric</span><span>Before</span><span>After</span></div>
+          <div class="row"><span>Inquiries / month</span><span class="before">35</span><span class="after">112</span></div>
+          <div class="row"><span>Cost / inquiry</span><span class="before">₹250</span><span class="after">₹140</span></div>
+        </div>
+      </div>
+
+      <div class="case reveal reveal-delay-2">
+        <div class="case-thumb fit">
+          <span class="stat">5.6x</span>
+          <span class="stat-label">ROAS across 5 locations</span>
+        </div>
+        <div class="case-head">
+          <span class="niche-tag">Fitness · Multi-location</span>
+          <h3>5-location gym chain</h3>
+          <p class="case-result">Scaled sign-ups across all locations without a creative refresh for six weeks.</p>
+        </div>
+        <div class="case-ledger">
+          <div class="row head"><span>Metric</span><span>Before</span><span>After</span></div>
+          <div class="row"><span>ROAS</span><span class="before">2.1x</span><span class="after">5.6x</span></div>
+          <div class="row"><span>Cost / acquisition</span><span class="before">₹4,500</span><span class="after">₹1,500</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     TESTIMONIALS
+     =================================================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What clients say</div>
+      <h2>From institute owners, gym operators &amp; clinic founders</h2>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial reveal">
+        <p class="">"Our demo class bookings tripled within two months, and cost per lead actually went down as we scaled the budget."</p>
+        <div class="who">Owner — Test-prep institute</div>
+      </div>
+      <div class="testimonial reveal reveal-delay-1">
+        <p >"The first reports we've had that connect ad spend directly to admissions, Great work by Anas."</p>
+        <div class="who">Director - Private School</div>
+      </div>
+      <div class="testimonial reveal reveal-delay-2">
+        <p class="">"We opened two new locations this year and the ad strategy scaled with us, location by location, without starting from zero each time."</p>
+        <div class="who">Operations head — Gym chain</div>
+      </div>
+      <div class="testimonial reveal reveal-delay-3">
+        <p class="">"Our appointment bookings from Meta went from almost nothing to filling two extra slots a day within a month — and we finally know what each booking actually costs us."</p>
+        <div class="who">Founder — Diagnostic clinic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     CONTACT
+     =================================================== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-layout">
+      <div class="contact-headline reveal">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Got a batch, a season, or a launch coming up?</h2>
+        <p>Send over a few details about your institute, gym, clinic, or centre and your current ad setup — I'll reply with what I'd fix first and what results to expect.</p>
+      </div>
+
+      <div class="contact-col reveal reveal-delay-1">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="yourName">Your name</label>
+            <input type="text" id="yourName" name="name" placeholder="So I know who to reply to" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="yourEmail">Your email</label>
+            <input type="email" id="yourEmail" name="email" placeholder="Where I'll send my reply" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service">What are you looking to grow?</label>
+            <select id="service" name="service" required>
+              <option value="">Select a goal…</option>
+              <option>Coaching institute enrollments</option>
+              <option>School or college admissions</option>
+              <option>Gym or fitness studio memberships</option>
+              <option>Clinic or wellness centre bookings</option>
+              <option>Academy or studio trial sign-ups</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">A few details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Current ad spend, what's not working, and what you'd like to fix…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message →</button>
+        </form>
+
+        <div class="contact-card">
+          <div class="contact-row">
+            <span class="c-label">Email</span>
+            <a href="mailto:workanasahmad@gmail.com">workanasahmad@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="c-label">WhatsApp</span>
+            <a href="https://wa.me/918739053262" target="_blank" rel="noopener">+91 87390 53262</a>
+          </div>
+          <div class="contact-row">
+            <span class="c-label">LinkedIn</span>
+            <a href="https://linkedin.com/in/anasahmad2006" target="_blank" rel="noopener">linkedin.com/in/anasahmad</a>
+          </div>
+          <div class="contact-row">
+            <span class="c-label">Based in</span>
+            <span>India · works with clients remotely</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     FOOTER
+     =================================================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span>© 2026 Anas Ahmad — Meta Ads Strategist</span>
+      <span>Education, Fitness &amp; Local Business</span>
+    </div>
+    <!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/workanasahmad/discovery-call', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+<!-- Calendly badge widget end -->
+  </div>
+</footer>
+
+<!-- Back to top -->
 <button class="back-top" id="backTop" aria-label="Back to top">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </button>
 
 <script>
-const hamburger=document.getElementById('hamburger'), mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>{const open=hamburger.classList.toggle('open');hamburger.setAttribute('aria-expanded',open);mobileMenu.classList.toggle('open',open)});
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('open');hamburger.setAttribute('aria-expanded','false');mobileMenu.classList.remove('open')}));
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobLinks   = mobileMenu.querySelectorAll('a');
 
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+function toggleMenu(open) {
+  hamburger.classList.toggle('open', open);
+  mobileMenu.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
 
-document.querySelectorAll('.count').forEach(el=>{
-  const target=parseFloat(el.dataset.target||0), decimals=parseInt(el.dataset.decimals||0), prefix=el.dataset.prefix||'', suffix=el.dataset.suffix||'';
-  let start=null;
-  const animate=t=>{if(!start)start=t;const p=Math.min((t-start)/1000,1),e=1-Math.pow(1-p,3);el.textContent=prefix+(target*e).toFixed(decimals)+suffix;if(p<1)requestAnimationFrame(animate)};
-  requestAnimationFrame(animate);
-});
+hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+mobLinks.forEach(l => l.addEventListener('click', () => toggleMenu(false)));
 
-const backTop=document.getElementById('backTop');
-window.addEventListener('scroll',()=>backTop.classList.toggle('visible',window.scrollY>500));
-backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-document.getElementById('year').textContent=new Date().getFullYear();
+/* =====================================================
+   SCROLL REVEALS
+   ===================================================== */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in-view'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
 
-document.getElementById('contactForm').addEventListener('submit',e=>{
+/* =====================================================
+   COUNT-UP
+   ===================================================== */
+const counters = document.querySelectorAll('.count');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function formatNum(el, value) {
+  const dec    = parseInt(el.dataset.decimals || '0', 10);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  return prefix + value.toFixed(dec) + suffix;
+}
+
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseFloat(el.dataset.target);
+    if (reduceMotion) { el.textContent = formatNum(el, target); countObs.unobserve(el); return; }
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = formatNum(el, target * eased);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.4 });
+counters.forEach(el => countObs.observe(el));
+
+/* =====================================================
+   CONTACT FORM → EMAIL (via FormSubmit, no backend needed)
+   =====================================================
+   This sends the form data to FormSubmit (https://formsubmit.co),
+   which forwards it straight to workanasahmad@gmail.com.
+
+   ONE-TIME SETUP: the first time this form is submitted (e.g. when
+   you test it), FormSubmit emails workanasahmad@gmail.com asking you
+   to click "Activate Form". Click it once — every submission after
+   that lands in the inbox automatically. No password or API key
+   needed; FormSubmit is free.
+
+   Note: reCAPTCHA is left ON below (no _captcha:'false' field) since
+   this endpoint is reachable directly, not only from this page — the
+   captcha is what stops bots from spamming the inbox. If you'd rather
+   trade that protection for a slightly smoother submit experience,
+   add `_captcha: 'false'` to the formData object below.
+   ===================================================== */
+const FORM_EMAIL = 'workanasahmad@gmail.com'; // <-- change this to redirect submissions elsewhere
+const form = document.getElementById('contactForm');
+
+form && form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const form=e.currentTarget, name=form.name.value.trim(), email=form.email.value.trim(), service=form.service.value;
-  if(!name||!email||!service){alert('Please fill in your name, email and growth goal.');return}
-  const subject=encodeURIComponent('New marketing enquiry from '+name);
-  const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nGoal: '+service+'\n\n'+form.message.value);
-  window.location.href='mailto:workanasahmad@gmail.com?subject='+subject+'&body='+body;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+
+  const name    = document.getElementById('yourName').value;
+  const email   = document.getElementById('yourEmail').value;
+  const service = document.getElementById('service').value;
+  const message = document.getElementById('message').value;
+
+  const formData = {
+    name: name,
+    email: email,
+    looking_to_grow: service,
+    message: message || '(no additional details)',
+    _subject: 'Meta Ads enquiry: ' + service
+  };
+
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(() => {
+    alert('Thanks ' + name + '! Your message is on its way — Anas will reply by email soon.');
+    form.reset();
+  })
+  .catch(() => {
+    alert("Sorry, that didn't go through. Please email workanasahmad@gmail.com directly instead.");
+  })
+  .finally(() => {
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+  });
 });
+
+/* =====================================================
+   BACK TO TOP
+   ===================================================== */
+const backTop = document.getElementById('backTop');
+const scrollHandler = () => backTop.classList.toggle('visible', window.scrollY > 480);
+window.addEventListener('scroll', scrollHandler, { passive: true });
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* =====================================================
+   ACTIVE NAV LINK ON SCROLL
+   ===================================================== */
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+const sectionObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.removeAttribute('style'));
+      const link = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+      if (link) link.style.color = 'var(--ink)';
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => sectionObs.observe(s));
 </script>
 </body>
 </html>
